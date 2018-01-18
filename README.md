@@ -1,10 +1,8 @@
-# Play Framework with Scala.js, Binding.scala
-
-[![Join the chat at https://gitter.im/Full-Stack-Scala-Starter/Lobby](https://badges.gitter.im/Full-Stack-Scala-Starter/Lobby.svg)](https://gitter.im/Full-Stack-Scala-Starter/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# Play Framework with Scala.js, Binding.scala, and [Protoroutes](https://github.com/hirofumi/protoroutes)
 
 This is a simple example application showing how you can integrate a Play project with a Scala.js, Binding.scala project. 
 
-Frontend communicates with backend via JSON. Project aims to be a simple modern starting point.
+Frontend communicates with backend via Protocol Buffers. Project aims to be a simple modern starting point.
 
 The application contains three directories:
 * `server` Play application (server side)

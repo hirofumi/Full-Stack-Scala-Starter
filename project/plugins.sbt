@@ -12,6 +12,8 @@ addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.6.11")
 
 addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.6")
 
+addSbtPlugin("com.github.hirofumi" % "sbt-protoroutes" % "0.1.0-M1")
+
 addSbtPlugin("org.scala-js" % "sbt-scalajs" % "0.6.21")
 
 addSbtPlugin("com.vmunier" % "sbt-web-scalajs" % "1.0.6")

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package controllers;
+
+import "google/api/annotations.proto";
+import "google/protobuf/wrappers.proto";
+
+service Counter {
+
+    rpc Count (Void) returns (google.protobuf.Int32Value) {
+        option (google.api.http) = {
+            post: "/count"
+        };
+    }
+
+}
+
+message Void {
+
+}

@@ -15,7 +15,8 @@ lazy val server = (project in file("server")).settings(
   ),
   // Compile the project before generating Eclipse files, so that generated .scala or .class files for views and routes are present
   EclipseKeys.preTasks := Seq(compile in Compile)
-).enablePlugins(PlayScala).
+).settings(pbSettings ++ Seq(protoroutesPlay26Router := true)).
+  enablePlugins(PlayScala, Protoroutes).
   dependsOn(sharedJvm)
 
 lazy val client = (project in file("client")).settings(
@@ -31,7 +32,8 @@ lazy val client = (project in file("client")).settings(
     "com.thoughtworks.binding" %%% "futurebinding" % "11.0.0",
     "fr.hmil" %%% "roshttp" % "2.1.0"
   )
-).enablePlugins(ScalaJSPlugin, ScalaJSWeb).
+).settings(pbSettings ++ Seq(protoroutesAjax := true)).
+  enablePlugins(Protoroutes, ScalaJSPlugin, ScalaJSWeb).
   dependsOn(sharedJs)
 
 lazy val shared = (crossProject.crossType(CrossType.Pure) in file("shared")).
@@ -43,3 +45,8 @@ lazy val sharedJs = shared.js
 
 // loads the server project at sbt startup
 onLoad in Global ~= (_ andThen ("project server" :: _))
+
+lazy val pbSettings = Seq(
+  PB.protoSources in Compile := Seq(baseDirectory.value.getParentFile / "protobuf"),
+  PB.protoSources in Compile += protoroutesDependencyProtoPath.value
+)
